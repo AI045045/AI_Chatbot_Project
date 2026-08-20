@@ -1,0 +1,36 @@
+# AI Legal Chatbot - Git Ignore File
+# Specifies intentionally untracked files and directories that Git should ignore.
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.venv*
+
+# IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Project-specific database and temporary uploads
+# (This ensures database logins and uploaded documents are not committed to git)
+ai legal chatbot/data/*.db
+ai legal chatbot/data/*.db-journal
+ai legal chatbot/tmp_uploads/*
+!ai legal chatbot/tmp_uploads/.gitkeep

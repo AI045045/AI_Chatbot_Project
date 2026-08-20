@@ -1,0 +1,25 @@
+# AI Legal Chatbot - Docker Compose Configuration
+# This file orchestrates the Streamlit app container, configures the Ollama host connection, and sets up persistence volumes.
+
+version: '3.8'
+
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-legal-chatbot
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - chatbot_data:/app/ai_legal_chatbot/data
+      - chatbot_uploads:/app/ai_legal_chatbot/tmp_uploads
+    restart: unless-stopped
+
+volumes:
+  chatbot_data:
+  chatbot_uploads:
